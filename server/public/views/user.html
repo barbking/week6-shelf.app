@@ -1,0 +1,22 @@
+<script type="text/javascript" src="/assets/scripts/controllers/shelf.controller.js"></script>
+
+
+<div class="container">
+    <h1 id="welcome" class="lead">Welcome, {{uc.userName}}!</h1>
+    <p>This is the user page!</p>
+    <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
+</div>
+<div ng-controller="shelfController as sc">
+  <div>
+    <input placeholder="description" ng-model="sc.descriptionIn">
+    <input placeholder="imgUrl" ng-model="sc.imgUrlIn">
+    <button type="button" ng-click="sc.addShelfItem(uc.userName)">add item</button>
+    <!-- <button type="button" ng-click=""></button> -->
+  </div>
+    <div ng-repeat="item in sc.allItems">
+      {{item.userName}}
+      {{item.description}}
+      <img ng-src="{{item.imgUrl}}"/>
+      <button type="button" ng-click="sc.deleteItem(item._id, item.userName)">Delete</button>
+    </div>
+  </div>
